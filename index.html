@@ -17,6 +17,7 @@
     referrerpolicy="no-referrer"
   />
 
+  <!-- Link to your CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -36,4 +37,62 @@
   <!-- Hero Section -->
   <main class="hero">
     <div class="hero-content">
-      <!-- Optional grayscale photo. Replace 'profile.jpg' with you
+      <!-- Grayscale photo -->
+      <!-- Replace 'profile.jpg' with the path or filename of your own image -->
+      <div class="hero-image">
+        <img src="profile.jpg" alt="Profile Photo" />
+      </div>
+
+      <!-- Large heading with split color (also assigned the .neon-text class for the JS effect) -->
+      <h1 class="hero-title neon-text">
+        ONENGIYE
+        <span>PRINCE JACOB</span>
+      </h1>
+
+      <!-- Subtext for your role/skills -->
+      <p class="hero-subtitle">
+        Web Developer / Cyber Security Analyst
+      </p>
+
+      <!-- Container holding both CTA buttons -->
+      <div class="hero-buttons">
+        <a href="#works" class="hero-button secondary">View My Works</a>
+        <a href="#contact" class="hero-button primary">Get in touch →</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator (optional) -->
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </main>
+
+  <!-- Works/Projects Section (linked from "View My Works") -->
+  <section id="works" class="works-section">
+    <h2>My Works</h2>
+    <div class="project-item">
+      <h3><a href="https://www.nlng.com/" target="_blank">NLNG Website</a></h3>
+      <p>A digital platform showcasing the services of Nigeria LNG.</p>
+    </div>
+    <div class="project-item">
+      <h3><a href="https://jilworldwide.org/" target="_blank">JIL Worldwide</a></h3>
+      <p>An interactive website reflecting a global outlook.</p>
+    </div>
+    <div class="project-item">
+      <h3><a href="https://nddc.gov.ng/" target="_blank">NDDC Portal</a></h3>
+      <p>A government portal providing critical data and services.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section (linked from "Get in touch") -->
+  <section id="contact" class="contact-section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:jacobprince302@gmail.com">jacobprince302@gmail.com</a></p>
+    <p>Mobile: <a href="#">+447823655405</a></p>
+    <p>GitHub: <a href="#">Your GitHub</a></p>
+  </section>
+
+  <!-- Link to your JS (place at bottom so DOM is loaded first) -->
+  <script src="script.js"></script>
+</body>
+</html>
