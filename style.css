@@ -78,25 +78,44 @@ html, body {
 .hero-subtitle {
   font-size: 1.2rem;
   opacity: 0.9;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-/* CTA button */
+/* Hero Buttons Container */
+.hero-buttons {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+}
+
+/* CTA buttons */
 .hero-button {
-  display: inline-block;
-  background-color: #ff7fbb;
-  color: #000;
   text-decoration: none;
+  font-weight: 700;
   padding: 12px 20px;
   border-radius: 4px;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-  align-self: flex-end; /* Moves button to the right within hero-content */
-  margin-right: 20px; /* Adjust spacing from the right edge if needed */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.hero-button:hover {
+/* Primary button (Get in touch) */
+.hero-button.primary {
+  background-color: #ff7fbb;
+  color: #000;
+}
+.hero-button.primary:hover {
   background-color: #ff4f9d;
+  color: #fff;
+}
+
+/* Secondary button (View My Works) */
+.hero-button.secondary {
+  background-color: #000;
+  color: #ff7fbb;
+  border: 2px solid #ff7fbb;
+}
+.hero-button.secondary:hover {
+  background-color: #ff4f9d;
+  color: #fff;
+  border-color: #ff4f9d;
 }
 
 /* Scroll Indicator */
@@ -123,28 +142,22 @@ html, body {
   60% { transform: translate(-50%, -5px); }
 }
 
-/* CONTACT SECTION */
-.contact-section {
-  min-height: 50vh;
+/* WORKS SECTION */
+.works-section {
   padding: 60px 20px;
   text-align: center;
+  background-color: #111;
 }
 
-.contact-section h2 {
+.works-section h2 {
   font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.project-item {
   margin-bottom: 20px;
 }
-
-.contact-section p {
-  margin: 10px 0;
-  font-size: 1rem;
-}
-
-.contact-section a {
-  color: #ff7fbb;
-  text-decoration: none;
-}
-
-.contact-section a:hover {
-  text-decoration: underline;
+.project-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
 }
