@@ -1,101 +1,150 @@
-/* Reset & basic styling */
+/* RESET & BASE */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background: #000;
-  color: #fff;
-  line-height: 1.6;
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #000; /* Black background */
+  font-family: 'Inter', sans-serif;
+  color: #fff; 
 }
 
-header {
-  text-align: center;
-  padding: 20px;
-}
-
-/* Neon text with dynamic animation */
-.neon-text {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 2rem;
-  color: #fff;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
-  animation: neon 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes neon {
-  from {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 60px #ff00de;
-  }
-}
-
-/* Navigation styles */
-nav ul {
-  list-style: none;
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 10; /* Ensures header is on top */
+  background: transparent;
+}
+
+.header-icon {
+  font-size: 28px;  /* Adjust icon size as needed */
+  cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
-nav ul li {
-  margin: 0 15px;
+/* Hero content container */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
 }
 
-nav ul li a {
-  color: #fff;
+/* Grayscale image */
+.hero-image img {
+  width: 200px; /* Adjust as needed */
+  height: auto;
+  border-radius: 4px;
+  filter: grayscale(100%);
+  margin-bottom: 20px;
+}
+
+/* Large title with split color effect */
+.hero-title {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.hero-title span {
+  color: #ff7fbb; /* Pink color for last name */
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+/* CTA button */
+.hero-button {
+  display: inline-block;
+  background-color: #ff7fbb;
+  color: #000;
   text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  align-self: flex-end; /* Moves button to the right within hero-content */
+  margin-right: 20px; /* Adjust spacing from the right edge if needed */
 }
 
-nav ul li a:hover {
-  color: #ff00de;
+.hero-button:hover {
+  background-color: #ff4f9d;
 }
 
-/* Section styling */
-section {
-  padding: 40px 20px;
-  text-align: center;
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Profile picture styling */
-.profile-pic img {
-  width: 150px;
-  height: 150px;
+.scroll-indicator span {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #fff;
   border-radius: 50%;
-  border: 5px solid #ff00de;
+  animation: bounce 2s infinite;
+  cursor: pointer;
 }
 
-/* Projects grid */
-.project-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, -10px); }
+  60% { transform: translate(-50%, -5px); }
 }
 
-.project-item {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.project-item:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, 0.2);
-}
-
-footer {
-  padding: 20px;
+/* CONTACT SECTION */
+.contact-section {
+  min-height: 50vh;
+  padding: 60px 20px;
   text-align: center;
-  background: #111;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.contact-section a {
+  color: #ff7fbb;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
 }
