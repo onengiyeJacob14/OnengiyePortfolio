@@ -157,7 +157,43 @@ html, body {
 .project-item {
   margin-bottom: 20px;
 }
+
 .project-item h3 {
   font-size: 1.2rem;
   margin-bottom: 5px;
+}
+
+.project-item a {
+  color: #ff7fbb;
+  text-decoration: none;
+}
+
+.project-item a:hover {
+  text-decoration: underline;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  min-height: 40vh;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.contact-section a {
+  color: #ff7fbb;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
 }
