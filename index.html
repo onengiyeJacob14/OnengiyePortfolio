@@ -2,101 +2,1462 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Onengiye Prince Jacob - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onengiye Jacob | Web Developer & IT Professional</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome (CDN) for icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    integrity="sha512-acRZGh6fZ7LeIEQ9h9a8J5fUl1tXPa1JlTkhP7t8t3a5KWoXtMVxDe8RBn4ZYYiLG9R8Rdzp0XWe8b3k+AcFzQ=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #020617;
+      --surface: #020617;
+      --surface-soft: #020617;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.14);
+      --accent-strong: #16a34a;
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --text-muted: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 1.25rem;
+      --radius-xl: 1.75rem;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 55px rgba(15, 23, 42, 0.7);
+      --shadow-subtle: 0 12px 35px rgba(15, 23, 42, 0.5);
+      --shadow-glow: 0 0 40px rgba(34, 197, 94, 0.5);
+      --max-width: 1120px;
+    }
 
-  <!-- Link to your CSS -->
-  <link rel="stylesheet" href="style.css" />
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAVBAR */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.88));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 1.1rem;
+      background: radial-gradient(circle at 20% 20%, #22c55e, #22c55e 27%, #0f172a 55%, #020617 100%);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      box-shadow: var(--shadow-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-avatar::after {
+      content: "OJ";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: #e5f9ee;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-name {
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-tag {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: none;
+      gap: 1.25rem;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, var(--accent), var(--accent-strong));
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    .primary-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.52rem 1.15rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.18), rgba(15, 23, 42, 0.92));
+      color: #e5f9ee;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.9);
+      transition:
+        box-shadow 0.2s ease-out,
+        transform 0.2s ease-out,
+        border-color 0.2s ease-out,
+        background 0.2s ease-out;
+    }
+
+    .primary-pill span {
+      font-size: 1rem;
+    }
+
+    .primary-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-glow);
+      border-color: rgba(34, 197, 94, 0.85);
+      background: radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.28), rgba(15, 23, 42, 0.96));
+    }
+
+    /* LAYOUT */
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 3.2rem 1.25rem;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.25), rgba(15, 23, 42, 0.9));
+      color: #bbf7d0;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-label-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.85);
+    }
+
+    .section-heading-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 38rem;
+    }
+
+    /* HERO */
+    #hero {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.75rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .hero-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.85);
+    }
+
+    .hero-title {
+      font-size: 2.05rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 1.6rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .hero-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .hero-list span {
+      font-size: 1rem;
+      margin-top: 0.05rem;
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.7rem 1.3rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition:
+        background 0.18s ease-out,
+        border-color 0.18s ease-out,
+        transform 0.18s ease-out,
+        box-shadow 0.18s ease-out;
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-main);
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, var(--accent), var(--accent-strong));
+      border-color: transparent;
+      color: #022c16;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.9);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .hero-meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-value {
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.24), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.18), transparent 60%),
+        rgba(15, 23, 42, 0.98);
+      padding: 1.4rem 1.35rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-tag {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-card-title {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-card-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-pill {
+      font-size: 0.76rem;
+      padding: 0.22rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-soft);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.86rem;
+      margin-top: 0.4rem;
+    }
+
+    .hero-stat-label {
+      color: var(--text-muted);
+      font-size: 0.76rem;
+    }
+
+    .hero-stat-value {
+      color: #e5f9ee;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ABOUT */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr;
+      gap: 1.6rem;
+    }
+
+    .about-text {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .about-highlight {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+    }
+
+    .about-point {
+      border-radius: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.96);
+      padding: 0.75rem 0.85rem;
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+    }
+
+    .about-point-icon {
+      font-size: 1rem;
+      margin-top: 0.05rem;
+    }
+
+    .about-point-text span {
+      font-size: 0.86rem;
+      font-weight: 500;
+      display: block;
+    }
+
+    .about-point-text small {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    /* PROJECTS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.98);
+      padding: 1.05rem 1.1rem 1.15rem;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .card-badge {
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.14);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      white-space: nowrap;
+    }
+
+    .card-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .card-body {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .card-footer {
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .card-link {
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      color: var(--text-main);
+    }
+
+    .card-link span {
+      font-size: 1rem;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .skills-column {
+      border-radius: 1.1rem;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.98);
+      padding: 1rem 1.05rem;
+    }
+
+    .skills-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skills-tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+    }
+
+    /* EXPERIENCE */
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0.9rem 0.9rem 0.9rem 1.25rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.98);
+      font-size: 0.86rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0.7rem;
+      top: 1rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.9);
+    }
+
+    .timeline-role {
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .timeline-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-body {
+      color: var(--text-soft);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .testimonial {
+      border-radius: 1.1rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.98);
+      padding: 1rem 1.05rem;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .testimonial-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .testimonial-client {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .testimonial-note {
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* PROCESS / WHY WORK WITH ME */
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .process-card {
+      border-radius: 1.1rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.98);
+      padding: 0.95rem 1rem;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .process-step {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .process-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    /* CONTACT */
+    #contact .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.4rem;
+    }
+
+    .contact-card {
+      border-radius: 1.1rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.98);
+      padding: 1.1rem 1.1rem;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-top: 0.6rem;
+    }
+
+    .contact-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .contact-value a {
+      font-size: 0.9rem;
+      color: #e5f9ee;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.6rem;
+    }
+
+    .social-pill {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.72rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 1.3rem 1.25rem 1.6rem;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.96), #020617);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* RESPONSIVE */
+    @media (min-width: 640px) {
+      #hero {
+        padding-top: 4rem;
+      }
+
+      .hero-title {
+        font-size: 2.4rem;
+      }
+
+      .hero-grid {
+        gap: 2.6rem;
+      }
+
+      .about-points {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      #contact .contact-grid {
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-cta {
+        display: block;
+      }
+
+      section {
+        padding: 3.4rem 1.5rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      }
+
+      #about .about-grid {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      }
+
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 2.7rem;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header class="site-header">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-avatar"></div>
+          <div class="brand-text">
+            <div class="brand-name">Onengiye&nbsp;Jacob</div>
+            <div class="brand-tag">Web · IT · Care</div>
+          </div>
+        </div>
 
-  <!-- Header with Font Awesome icons -->
-  <header class="header">
-    <div class="header-left">
-      <!-- Font Awesome avatar/user icon -->
-      <i class="fas fa-user-circle header-icon"></i>
-    </div>
-    <div class="header-right">
-      <!-- Font Awesome menu/bars icon -->
-      <i class="fas fa-bars header-icon"></i>
-    </div>
-  </header>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-  <!-- Hero Section -->
-  <main class="hero">
-    <div class="hero-content">
-      <!-- Grayscale photo -->
-      <!-- Replace 'profile.jpg' with the path or filename of your own image -->
-      <div class="hero-image">
-        <img src="profile.jpg" alt="Profile Photo" />
+        <div class="nav-cta">
+          <a href="#contact" class="primary-pill">
+            <span>●</span>
+            <span>Let’s work together</span>
+          </a>
+        </div>
       </div>
+    </header>
 
-      <!-- Large heading with split color (also assigned the .neon-text class for the JS effect) -->
-      <h1 class="hero-title neon-text">
-        ONENGIYE
-        <span>PRINCE JACOB</span>
-      </h1>
+    <main>
+      <!-- HERO -->
+      <section id="hero">
+        <div class="section-inner hero-grid">
+          <div>
+            <div class="hero-badge-row">
+              <div class="hero-badge">
+                <span class="dot"></span>
+                Available for freelance projects
+              </div>
+              <div class="hero-badge">
+                Web Development · Care Sector · Ministries
+              </div>
+            </div>
 
-      <!-- Subtext for your role/skills -->
-      <p class="hero-subtitle">
-        Web Developer / Cyber Security Analyst
-      </p>
+            <h1 class="hero-title">
+              I build <span>clean, reliable</span> websites for care providers and ministries.
+            </h1>
+            <p class="hero-subtitle">
+              I’m an IT professional and web developer who understands both technology and people. I create fast,
+              responsive sites that feel trustworthy — for organisations that serve real lives.
+            </p>
 
-      <!-- Container holding both CTA buttons -->
-      <div class="hero-buttons">
-        <a href="#works" class="hero-button secondary">View My Works</a>
-        <a href="#contact" class="hero-button primary">Get in touch →</a>
+            <ul class="hero-list">
+              <li>
+                <span>✓</span>
+                <div>Focused on care, charities, churches, small businesses and professionals.</div>
+              </li>
+              <li>
+                <span>✓</span>
+                <div>Modern, responsive designs that look great on mobile, tablet and desktop.</div>
+              </li>
+              <li>
+                <span>✓</span>
+                <div>Simple process, clear communication, and support after launch.</div>
+              </li>
+            </ul>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                View my work
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                Book a quick chat
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <div class="hero-meta-block">
+                <div class="hero-meta-label">Main focus</div>
+                <div class="hero-meta-value">Care services &amp; ministries</div>
+              </div>
+              <div class="hero-meta-block">
+                <div class="hero-meta-label">Location</div>
+                <div class="hero-meta-value">Birmingham · UK</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <div class="hero-card-tag">Snapshot</div>
+            <h2 class="hero-card-title">Web Developer &amp; IT Generalist</h2>
+            <p class="hero-card-subtitle">
+              Blending technical skill with real-world care experience to create websites that feel human, not cold.
+            </p>
+
+            <div class="hero-pills">
+              <span class="hero-pill">HTML · CSS · JavaScript</span>
+              <span class="hero-pill">Responsive design</span>
+              <span class="hero-pill">Care &amp; health context</span>
+              <span class="hero-pill">Church &amp; ministry sites</span>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <div class="hero-stat-label">Sectors</div>
+                <div class="hero-stat-value">Care · Faith · SMEs</div>
+              </div>
+              <div>
+                <div class="hero-stat-label">Approach</div>
+                <div class="hero-stat-value">Simple &amp; collaborative</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-inner">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            About
+          </div>
+
+          <div class="section-heading-row">
+            <h2 class="section-title">Who I am &amp; how I work</h2>
+            <p class="section-subtitle">
+              I’m an IT graduate and hands-on care professional who loves building websites that are calm, clear and
+              easy to use. I understand what it’s like to support people on the front line — and I bring that same
+              patience and attention to detail into my web projects.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                My background sits at the crossroads of
+                <span class="about-highlight">technology, care and ministry</span>.
+                That means I care about more than layouts and buttons — I care about whether your website truly reflects
+                your values and gives visitors confidence in your organisation.
+              </p>
+
+              <p style="margin-top: 0.9rem;">
+                I prioritise:
+              </p>
+              <ul class="hero-list" style="margin-top: 0.35rem;">
+                <li>
+                  <span>•</span>
+                  <div>Clear structure and content that’s easy to navigate.</div>
+                </li>
+                <li>
+                  <span>•</span>
+                  <div>Fast loading pages, especially for users on mobile.</div>
+                </li>
+                <li>
+                  <span>•</span>
+                  <div>Accessible, friendly designs that welcome people in.</div>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="about-points">
+                <div class="about-point">
+                  <div class="about-point-icon">💻</div>
+                  <div class="about-point-text">
+                    <span>Web &amp; front-end focused</span>
+                    <small>HTML, CSS and clean layouts that your team can update easily in the future.</small>
+                  </div>
+                </div>
+
+                <div class="about-point">
+                  <div class="about-point-icon">🤝</div>
+                  <div class="about-point-text">
+                    <span>Made for real people</span>
+                    <small>Built around your service users, families, congregation or clients — not just “design for
+                      designers”.</small>
+                  </div>
+                </div>
+
+                <div class="about-point">
+                  <div class="about-point-icon">🧭</div>
+                  <div class="about-point-text">
+                    <span>Straightforward process</span>
+                    <small>We agree a simple plan, then I guide you through content, feedback and launch.</small>
+                  </div>
+                </div>
+
+                <div class="about-point">
+                  <div class="about-point-icon">🔒</div>
+                  <div class="about-point-text">
+                    <span>IT &amp; security aware</span>
+                    <small>IT background and exposure to cybersecurity principles — so we keep your site safe and
+                      sensible.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-inner">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            Selected work
+          </div>
+
+          <div class="section-heading-row">
+            <h2 class="section-title">Recent websites I’ve worked on</h2>
+            <p class="section-subtitle">
+              A small selection of projects in care and ministry. Each one is built to be clear, trustworthy, and easy
+              for visitors to take action.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <!-- Living Glory -->
+            <article class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Living Glory Social Care</h3>
+                  <div class="card-role">Full website build · Design &amp; front-end development</div>
+                </div>
+                <div class="card-badge">Care provider</div>
+              </div>
+              <div class="card-body">
+                A modern website for a social care provider, designed to reassure families and clearly present services.
+                The layout guides visitors from “Who we are” through to referrals and contact, with simple, readable
+                content and responsive design.
+              </div>
+              <div class="card-footer">
+                <a class="card-link" href="https://www.livingglorysocialcare.com/" target="_blank" rel="noopener noreferrer">
+                  <span>↗</span> Visit site
+                </a>
+                <div>Built with HTML, CSS and a focus on clarity.</div>
+              </div>
+            </article>
+
+            <!-- JIL -->
+            <article class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">JIL Worldwide</h3>
+                  <div class="card-role">Front-end development &amp; layout</div>
+                </div>
+                <div class="card-badge">Church &amp; ministry</div>
+              </div>
+              <div class="card-body">
+                An online home for a growing church community — showcasing messages, events and ways to connect. The
+                site structure keeps things simple for new visitors while making it easy for members to find what they
+                need quickly.
+              </div>
+              <div class="card-footer">
+                <a class="card-link" href="https://jilworldwide.org/" target="_blank" rel="noopener noreferrer">
+                  <span>↗</span> Visit site
+                </a>
+                <div>Optimised for mobile and everyday use.</div>
+              </div>
+            </article>
+
+            <!-- Placeholder / Coming soon -->
+            <article class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Your project here</h3>
+                  <div class="card-role">Future collaboration</div>
+                </div>
+                <div class="card-badge">Now booking</div>
+              </div>
+              <div class="card-body">
+                I’m currently open to new work with care organisations, charities, churches and small businesses who
+                need a modern, trustworthy website that feels like them.
+              </div>
+              <div class="card-footer">
+                <a class="card-link" href="#contact">
+                  <span>✉</span> Start a conversation
+                </a>
+                <div>Let’s plan something tailored to you.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="section-inner">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            Skills
+          </div>
+
+          <div class="section-heading-row">
+            <h2 class="section-title">What I bring to your project</h2>
+            <p class="section-subtitle">
+              A blend of hands-on technical skills and people skills — so we can build something solid, together.
+            </p>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skills-column">
+              <div class="skills-title">Development</div>
+              <div class="skills-tags">
+                <span class="skills-tag">HTML5</span>
+                <span class="skills-tag">CSS3 / Flexbox / Grid</span>
+                <span class="skills-tag">Responsive layouts</span>
+                <span class="skills-tag">Basic JavaScript</span>
+                <span class="skills-tag">Landing pages</span>
+                <span class="skills-tag">Portfolio sites</span>
+              </div>
+            </div>
+
+            <div class="skills-column">
+              <div class="skills-title">Tools &amp; workflow</div>
+              <div class="skills-tags">
+                <span class="skills-tag">Git &amp; GitHub</span>
+                <span class="skills-tag">GitHub Pages</span>
+                <span class="skills-tag">Domain &amp; hosting setup</span>
+                <span class="skills-tag">Content structuring</span>
+                <span class="skills-tag">Performance awareness</span>
+              </div>
+            </div>
+
+            <div class="skills-column">
+              <div class="skills-title">People &amp; soft skills</div>
+              <div class="skills-tags">
+                <span class="skills-tag">Care &amp; empathy</span>
+                <span class="skills-tag">Clear communication</span>
+                <span class="skills-tag">Patience with non-technical clients</span>
+                <span class="skills-tag">Team collaboration</span>
+                <span class="skills-tag">Problem solving</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="section-inner">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            Experience
+          </div>
+
+          <div class="section-heading-row">
+            <h2 class="section-title">A mix of tech and frontline care</h2>
+            <p class="section-subtitle">
+              My background in IT, customer service and health &amp; social care means I understand both systems and
+              people — ideal for organisations that need a human, trustworthy online presence.
+            </p>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-role">Freelance Web Developer</div>
+              <div class="timeline-meta">Websites for care, ministries &amp; small businesses</div>
+              <p class="timeline-body">
+                Designing and building modern, responsive websites with a focus on clarity, accessibility and trust.
+                Working closely with clients to structure content and keep things simple behind the scenes.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-role">Care &amp; support roles</div>
+              <div class="timeline-meta">Health &amp; social care sector · UK</div>
+              <p class="timeline-body">
+                Hands-on experience supporting vulnerable people and families, which shapes how I think about language,
+                trust and accessibility on the web.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-role">IT &amp; customer service</div>
+              <div class="timeline-meta">IT graduate · Customer support experience</div>
+              <p class="timeline-body">
+                Technical training combined with real-world customer service — learning how to communicate clearly about
+                complex topics and solve problems calmly.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials">
+        <div class="section-inner">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            Testimonials
+          </div>
+
+          <div class="section-heading-row">
+            <h2 class="section-title">What it’s like to work with me</h2>
+            <p class="section-subtitle">
+              A few words you could share from clients once projects go live. Replace these with real testimonials as
+              you collect them.
+            </p>
+          </div>
+
+          <div class="testimonials-grid">
+            <article class="testimonial">
+              <div class="testimonial-label">Sample feedback</div>
+              “Our website finally reflects who we are. The process was straightforward, and communication was clear at
+              every step.”
+              <div class="testimonial-client">— Care provider</div>
+              <div class="testimonial-note">Replace this with a real client quote.</div>
+            </article>
+
+            <article class="testimonial">
+              <div class="testimonial-label">Sample feedback</div>
+              “Members can now find information so much more easily. The site works beautifully on phones, which is how
+              most of our community visits.”
+              <div class="testimonial-client">— Church / ministry leader</div>
+              <div class="testimonial-note">Replace this with a real client quote.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS / WHY WORK WITH ME -->
+      <section id="process">
+        <div class="section-inner">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            Process
+          </div>
+
+          <div class="section-heading-row">
+            <h2 class="section-title">How we’ll work together</h2>
+            <p class="section-subtitle">
+              A simple, low-stress process designed for busy people in care, ministry and small business.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-card">
+              <div class="process-step">Step 1</div>
+              <div class="process-title">Listen &amp; clarify</div>
+              <p>
+                We talk briefly about your organisation, who you serve, and what you need your website to achieve —
+                enquiries, information, donations, applications or something else.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <div class="process-step">Step 2</div>
+              <div class="process-title">Structure &amp; design</div>
+              <p>
+                I map out pages, key sections and content, then design a clean, responsive layout that matches your tone
+                and brand — without over-complicating things.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <div class="process-step">Step 3</div>
+              <div class="process-title">Build, test &amp; support</div>
+              <p>
+                I develop the site, test it on different devices, help you launch, and stay available for tweaks and
+                improvements as you gather feedback.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-inner">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            Contact
+          </div>
+
+          <div class="section-heading-row">
+            <h2 class="section-title">Let’s talk about your website</h2>
+            <p class="section-subtitle">
+              Whether you’re starting from scratch or improving an existing site, I’d love to hear about your project.
+              The easiest first step is a short, no-pressure chat.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <article class="contact-card">
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <!-- TODO: replace with your real email if different -->
+                <a href="mailto:your.email@example.com">your.email@example.com</a>
+              </div>
+
+              <div class="contact-row">
+                <div class="contact-label">Phone / WhatsApp</div>
+                <div class="contact-value">
+                  <!-- TODO: replace with your real phone or remove if you prefer -->
+                  <a href="tel:+44">+44 (0)7...</a>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div class="contact-label">Based in</div>
+                <div class="contact-value">
+                  Birmingham, United Kingdom · Available remotely
+                </div>
+              </div>
+            </article>
+
+            <article class="contact-card">
+              <div class="contact-label">Online</div>
+              <p style="margin-top: 0.3rem;">
+                You can also find me here:
+              </p>
+              <div class="social-row">
+                <!-- TODO: replace href values with your real profiles -->
+                <a class="social-pill" href="https://github.com/onengiyejacob14" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+                <a class="social-pill" href="#" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+                <a class="social-pill" href="#" target="_blank" rel="noopener noreferrer">
+                  Download CV
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-row">
+          <div>© <span id="year"></span> Onengiye Jacob. All rights reserved.</div>
+          <div class="footer-links">
+            <a href="#hero">Back to top</a>
+            <a href="#projects">Work</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </footer>
+  </div>
 
-    <!-- Scroll indicator (optional) -->
-    <div class="scroll-indicator">
-      <span></span>
-    </div>
-  </main>
-
-  <!-- Works/Projects Section (linked from "View My Works") -->
-  <section id="works" class="works-section">
-    <h2>My Works</h2>
-    <div class="project-item">
-      <h3><a href="https://www.nlng.com/" target="_blank">NLNG Website</a></h3>
-      <p>A digital platform showcasing the services of Nigeria LNG.</p>
-    </div>
-    <div class="project-item">
-      <h3><a href="https://jilworldwide.org/" target="_blank">JIL Worldwide</a></h3>
-      <p>An interactive website reflecting a global outlook.</p>
-    </div>
-    <div class="project-item">
-      <h3><a href="https://nddc.gov.ng/" target="_blank">NDDC Portal</a></h3>
-      <p>A government portal providing critical data and services.</p>
-    </div>
-    <div class="project-item">
-      <h3><a href="https://www.livingglorysocialcare.com/" target="_blank">Living Glory Social Care</a></h3>
-      <p>A Care provider website reflecting the services they offer</p>
-    </div>
-  </section>
-
-  <!-- Contact Section (linked from "Get in touch") -->
-  <section id="contact" class="contact-section">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:jacobprince302@gmail.com">jacobprince302@gmail.com</a></p>
-    <p>Mobile: <a href="#">+447823655405</a></p>
-    <p>GitHub: <a href="#">Your GitHub</a></p>
-  </section>
-
-  <!-- Link to your JS (place at bottom so DOM is loaded first) -->
-  <script src="script.js"></script>
+  <script>
+    // Small enhancement: keep the year in the footer up to date
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
