@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Onengiye Jacob | Web Developer & IT Professional</title>
 
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -39,6 +38,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
@@ -63,7 +66,6 @@
       flex-direction: column;
     }
 
-    /* NAVBAR */
     .site-header {
       position: sticky;
       top: 0;
@@ -194,7 +196,6 @@
       background: radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.28), rgba(15, 23, 42, 0.96));
     }
 
-    /* LAYOUT */
     main {
       flex: 1;
     }
@@ -249,7 +250,6 @@
       max-width: 38rem;
     }
 
-    /* HERO */
     #hero {
       padding-top: 3.5rem;
       padding-bottom: 3.5rem;
@@ -467,7 +467,6 @@
       font-size: 0.9rem;
     }
 
-    /* ABOUT */
     #about .about-grid {
       display: grid;
       grid-template-columns: 1.4fr;
@@ -519,7 +518,6 @@
       margin-top: 0.15rem;
     }
 
-    /* PROJECTS */
     .cards-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -595,7 +593,6 @@
       font-size: 1rem;
     }
 
-    /* SKILLS */
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -629,7 +626,6 @@
       color: var(--text-soft);
     }
 
-    /* EXPERIENCE */
     .timeline {
       display: grid;
       grid-template-columns: 1fr;
@@ -672,7 +668,6 @@
       color: var(--text-soft);
     }
 
-    /* TESTIMONIALS */
     .testimonials-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -709,7 +704,6 @@
       font-style: italic;
     }
 
-    /* PROCESS / WHY WORK WITH ME */
     .process-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -739,7 +733,6 @@
       margin-bottom: 0.3rem;
     }
 
-    /* CONTACT */
     #contact .contact-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -772,6 +765,7 @@
     .contact-value a {
       font-size: 0.9rem;
       color: #e5f9ee;
+      word-break: break-word;
     }
 
     .social-row {
@@ -789,7 +783,6 @@
       color: var(--text-soft);
     }
 
-    /* FOOTER */
     footer {
       border-top: 1px solid rgba(148, 163, 184, 0.2);
       padding: 1.3rem 1.25rem 1.6rem;
@@ -829,7 +822,6 @@
       color: var(--accent);
     }
 
-    /* RESPONSIVE */
     @media (min-width: 640px) {
       #hero {
         padding-top: 4rem;
@@ -908,7 +900,6 @@
 
 <body>
   <div class="page">
-    <!-- NAVBAR -->
     <header class="site-header">
       <div class="nav-inner">
         <div class="brand">
@@ -938,7 +929,6 @@
     </header>
 
     <main>
-      <!-- HERO -->
       <section id="hero">
         <div class="section-inner hero-grid">
           <div>
@@ -976,12 +966,8 @@
             </ul>
 
             <div class="hero-actions">
-              <a href="#projects" class="btn btn-primary">
-                View my work
-              </a>
-              <a href="#contact" class="btn btn-outline">
-                Book a quick chat
-              </a>
+              <a href="#projects" class="btn btn-primary">View my work</a>
+              <a href="#contact" class="btn btn-outline">Book a quick chat</a>
             </div>
 
             <div class="hero-meta">
@@ -1024,7 +1010,6 @@
         </div>
       </section>
 
-      <!-- ABOUT -->
       <section id="about">
         <div class="section-inner">
           <div class="section-label">
@@ -1050,9 +1035,7 @@
                 your values and gives visitors confidence in your organisation.
               </p>
 
-              <p style="margin-top: 0.9rem;">
-                I prioritise:
-              </p>
+              <p style="margin-top: 0.9rem;">I prioritise:</p>
               <ul class="hero-list" style="margin-top: 0.35rem;">
                 <li>
                   <span>•</span>
@@ -1083,8 +1066,7 @@
                   <div class="about-point-icon">🤝</div>
                   <div class="about-point-text">
                     <span>Made for real people</span>
-                    <small>Built around your service users, families, congregation or clients — not just “design for
-                      designers”.</small>
+                    <small>Built around your service users, families, congregation or clients — not just design for designers.</small>
                   </div>
                 </div>
 
@@ -1100,8 +1082,7 @@
                   <div class="about-point-icon">🔒</div>
                   <div class="about-point-text">
                     <span>IT &amp; security aware</span>
-                    <small>IT background and exposure to cybersecurity principles — so we keep your site safe and
-                      sensible.</small>
+                    <small>IT background and exposure to cybersecurity principles — so we keep your site safe and sensible.</small>
                   </div>
                 </div>
               </div>
@@ -1110,7 +1091,6 @@
         </div>
       </section>
 
-      <!-- PROJECTS -->
       <section id="projects">
         <div class="section-inner">
           <div class="section-label">
@@ -1127,7 +1107,6 @@
           </div>
 
           <div class="cards-grid">
-            <!-- Living Glory -->
             <article class="card">
               <div class="card-header">
                 <div>
@@ -1149,7 +1128,6 @@
               </div>
             </article>
 
-            <!-- JIL -->
             <article class="card">
               <div class="card-header">
                 <div>
@@ -1172,27 +1150,26 @@
             </article>
 
             <article class="card">
-  <div class="card-header">
-    <div>
-      <h3 class="card-title">Genesis Staffing Solutions</h3>
-      <div class="card-role">Website design &amp; front-end development</div>
-    </div>
-    <div class="card-badge">Healthcare staffing</div>
-  </div>
-  <div class="card-body">
-    Designed and developed a professional healthcare staffing website with a modern user interface,
-    responsive layout, and a clear service-focused structure to support recruitment, client engagement,
-    and brand visibility.
-  </div>
-  <div class="card-footer">
-    <a class="card-link" href="https://www.genesisstaffingsolutions.co.uk/about" target="_blank" rel="noopener noreferrer">
-      <span>↗</span> Visit site
-    </a>
-    <div>Built for a healthcare recruitment brand.</div>
-  </div>
-</article>
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Genesis Staffing Solutions</h3>
+                  <div class="card-role">Website design &amp; front-end development</div>
+                </div>
+                <div class="card-badge">Healthcare staffing</div>
+              </div>
+              <div class="card-body">
+                Designed and developed a professional healthcare staffing website with a modern user interface,
+                responsive layout, and a clear service-focused structure to support recruitment, client engagement,
+                and brand visibility.
+              </div>
+              <div class="card-footer">
+                <a class="card-link" href="https://www.genesisstaffingsolutions.co.uk/about" target="_blank" rel="noopener noreferrer">
+                  <span>↗</span> Visit site
+                </a>
+                <div>Built for a healthcare recruitment brand.</div>
+              </div>
+            </article>
 
-            <!-- Placeholder / Coming soon -->
             <article class="card">
               <div class="card-header">
                 <div>
@@ -1216,7 +1193,6 @@
         </div>
       </section>
 
-      <!-- SKILLS -->
       <section id="skills">
         <div class="section-inner">
           <div class="section-label">
@@ -1269,7 +1245,6 @@
         </div>
       </section>
 
-      <!-- EXPERIENCE -->
       <section id="experience">
         <div class="section-inner">
           <div class="section-label">
@@ -1316,7 +1291,6 @@
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
       <section id="testimonials">
         <div class="section-inner">
           <div class="section-label">
@@ -1352,7 +1326,6 @@
         </div>
       </section>
 
-      <!-- PROCESS / WHY WORK WITH ME -->
       <section id="process">
         <div class="section-inner">
           <div class="section-label">
@@ -1398,7 +1371,6 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
       <section id="contact">
         <div class="section-inner">
           <div class="section-label">
@@ -1418,15 +1390,13 @@
             <article class="contact-card">
               <div class="contact-label">Email</div>
               <div class="contact-value">
-                <!-- TODO: replace with your real email if different -->
-                <a href="mailto:your.email@example.com">your.email@example.com</a>
+                <a href="mailto:jacobprince302@gmail.com">jacobprince302@gmail.com</a>
               </div>
 
               <div class="contact-row">
                 <div class="contact-label">Phone / WhatsApp</div>
                 <div class="contact-value">
-                  <!-- TODO: replace with your real phone or remove if you prefer -->
-                  <a href="tel:+44">+44 (0)7...</a>
+                  <a href="tel:+44">+44 (0)7823655405</a>
                 </div>
               </div>
 
@@ -1444,14 +1414,10 @@
                 You can also find me here:
               </p>
               <div class="social-row">
-                <!-- TODO: replace href values with your real profiles -->
                 <a class="social-pill" href="https://github.com/onengiyejacob14" target="_blank" rel="noopener noreferrer">
                   GitHub
                 </a>
-                <a class="social-pill" href="#" target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                </a>
-                <a class="social-pill" href="#" target="_blank" rel="noopener noreferrer">
+                <a class="social-pill" href="#" rel="noopener noreferrer">
                   Download CV
                 </a>
               </div>
@@ -1461,7 +1427,6 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
       <div class="footer-inner">
         <div class="footer-row">
@@ -1477,7 +1442,6 @@
   </div>
 
   <script>
-    // Small enhancement: keep the year in the footer up to date
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
